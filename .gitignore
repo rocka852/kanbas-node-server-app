@@ -1,4 +1,9 @@
 node_modules
 .env.local
+# reason that .env without * is this file is starting from .
+
+# my file
 *.change
 *.mytemp
+*.zip
+
