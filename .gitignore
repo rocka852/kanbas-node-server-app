@@ -6,4 +6,6 @@ node_modules
 *.change
 *.mytemp
 *.zip
+.env
+*.DS_Store
 
