@@ -1,4 +1,8 @@
 node_modules
 .env.local
+
+#my file
 *.change
 *.mytemp
+*.DS_Store
+*.zip
