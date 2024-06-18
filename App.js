@@ -1,4 +1,5 @@
 import express from "express"
+import session from "express-session"
 import mongoose from "mongoose"
 import "dotenv/config"
 import Hello from "./Hello.js"
@@ -13,8 +14,30 @@ const CONNECTION_STRING = process.env.MONGO_CONNECTION_TRING || "mongodb://127.0
 mongoose.connect(CONNECTION_STRING)
 const app = express()
 //create a express library and assigns to local variable app
-app.use(cors())
+//app.use(cors()) change at A6 allow multiple users
+
+app.use(cors( {
+			credentials: true,
+			origin: process.env.NETLIFY_URL || "http://localhost:3000",
+		}
+	))
+const sessionOptions = {
+	secret: process.env.SESSION_SECRET || "kanbas",
+  	resave: false,
+  	saveUninitialized: false,
+}
+if (process.env.NODE_ENV !== "development") {
+  sessionOptions.proxy = true;
+  sessionOptions.cookie = {
+    sameSite: "none",
+    secure: true,
+    domain: process.env.NODE_SERVER_DOMAIN,
+  };
+}
+
+
 app.use(express.json())
+app.use(session(sessionOptions))
 
 //comment explain added after 3.6 but statement implement at the beginning check 
 //if there is other explaination at the beginning
