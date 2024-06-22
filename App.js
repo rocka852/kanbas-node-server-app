@@ -11,6 +11,8 @@ import UserRoutes from "./Users/routes.js"
 import cors from "cors"
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
+                                      //MONGO_CONNECTION_STRING
+console.log(CONNECTION_STRING)
 mongoose.connect(CONNECTION_STRING)
 const app = express()
 //create a express library and assigns to local variable app
