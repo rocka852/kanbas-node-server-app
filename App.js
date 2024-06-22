@@ -8,11 +8,18 @@ import CourseRoutes from "./Kanbas/Courses/routes.js"
 import ModuleRoutes from "./Kanbas/Modules/routes.js"
 import AssignmentRoutes from "./Kanbas/Assignments/routes.js"
 import UserRoutes from "./Users/routes.js"
+import QuizRoutes from "./Quiz/routes.js"
 import cors from "cors"
 
-const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
-                                      //MONGO_CONNECTION_STRING
-console.log(CONNECTION_STRING)
+//const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
+
+//test local database
+const CONNECTION_STRING = "mongodb://127.0.0.1:27017/kanbas"
+
+if (CONNECTION_STRING == "mongodb://127.0.0.1:27017/kanbas") {
+  console.log("Now in testmode: " + CONNECTION_STRING)
+}
+
 mongoose.connect(CONNECTION_STRING)
 const app = express()
 //create a express library and assigns to local variable app
@@ -51,6 +58,7 @@ CourseRoutes(app)
 ModuleRoutes(app)
 AssignmentRoutes(app)
 UserRoutes(app)
+QuizRoutes(app)
 //javascript is case sensitive hello(app) is not allowed
 
 /* move this part to Hello
