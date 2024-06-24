@@ -11,10 +11,10 @@ import UserRoutes from "./Users/routes.js"
 import QuizRoutes from "./Quiz/routes.js"
 import cors from "cors"
 
-//const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
 
 //test local database
-const CONNECTION_STRING = "mongodb://127.0.0.1:27017/kanbas"
+//const CONNECTION_STRING = "mongodb://127.0.0.1:27017/kanbas"
 
 if (CONNECTION_STRING == "mongodb://127.0.0.1:27017/kanbas") {
   console.log("Now in testmode: " + CONNECTION_STRING)
