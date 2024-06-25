@@ -6,7 +6,8 @@ export default function QuizRoutes(app) {
 	}
 
 	const createQuiz = async(req, res) => {
-
+		const quiz = await dao.createQuiz(req.body)
+		res.json(quiz)
 	}
 
 	const findQuizById = async(req, res) => {
