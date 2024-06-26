@@ -6,4 +6,4 @@ export const createQuiz = (quiz) => {
 }
 export const findAllQuiz = () => model.find()
 export const findQuizById = (quizId) => model.findOne({"quizId":quizId})
-export const updateQuiz = (quizId, quiz) => model.updateOne({_id: quizId}, {$set: quiz})
+export const updateQuizById = (quizId, quiz) => model.updateOne({"quizId": quizId}, {$set: quiz})

@@ -7,12 +7,12 @@ const quizSchema = new mongoose.Schema({
 		"state": String,
 		"due": String,
 		"points": String,
-		"NumOfQuestions": String,
+		"NumOfQuestions": Number,
 		"quizId":String,
 		"instructions":String,
 		"quizType":String,
 		"assignmentGroup":String,
-		"totalScore":String,
+		"totalScore":Number,
 		"quizTime":String,
 		"quizDue":String,
 		"available":String,
@@ -30,7 +30,8 @@ const quizSchema = new mongoose.Schema({
 		"webCamRequired":String,
 		"lockQuestionsAfterAnswering":String,
 		"forEveryOne":String,
-		"questions":Object
+		"questions":Object,
+		"studentScore":Number
 
 	},
 	{collection: "quizes"}

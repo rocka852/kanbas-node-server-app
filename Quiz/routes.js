@@ -11,17 +11,20 @@ export default function QuizRoutes(app) {
 	}
 
 	const findQuizById = async(req, res) => {
-		console.log(JSON.stringify(req.params))
+		console.log("In findQuizByid " + JSON.stringify(req.params))
 		const quiz = await dao.findQuizById(req.params.quizId)
 		res.json(quiz)
 	}
 
 	const updateQuiz = async(req, res) => {
-
+		const { quizId } =req.params
+		console.log("Update quiz by id= " + JSON.stringify(req.params))
+		const status = await dao.updateQuizById(quizId, req.body)
+		res.json(status)
 	}
 
-	app.post("/api/quizes", createQuiz)
-	app.get("/api/quizes", findAllQuiz)
-	app.get("/api/quizes/:quizId", findQuizById)
-	app.put("/api/quizes/:quizId", updateQuiz)
+	app.post("/api/quizzes", createQuiz)
+	app.get("/api/quizzes", findAllQuiz)
+	app.get("/api/quizzes/:quizId", findQuizById)
+	app.put("/api/quizzes/:quizId", updateQuiz)
 }
