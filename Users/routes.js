@@ -82,8 +82,10 @@ export default function UserRoutes(app) {
     req.session.destroy()
     res.sendStatus(200)
   };
-  const profile = async (req, res) => {
+  const profile = (req, res) => {
+    console.log("IN profile " + JSON.stringify(req.session))
     const currentUser = req.session["currentUser"]
+    console.log("IN profile " + JSON.stringify(currentUser))
     if(!currentUser) {
       res.sendStatus(401)
     }
